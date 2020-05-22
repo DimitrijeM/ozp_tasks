@@ -82,7 +82,7 @@ where soh.OrderDate is null and poh.OrderDate is null;
 
 
 -- 7. Prikazati koliko različitih proizvoda je prodato po teritoriji. (1 p.)
-select t.Name as TerritoryName, count(sod.ProductID) ProductCount
+select t.Name as TerritoryName, count(distinct(sod.ProductID)) ProductCount
 from Sales.SalesOrderHeader soh
          inner join Sales.SalesOrderDetail sod on soh.SalesOrderID = sod.SalesOrderID
          inner join Sales.SalesTerritory t on soh.TerritoryID = t.TerritoryID
